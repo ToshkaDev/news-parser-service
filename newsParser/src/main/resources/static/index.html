@@ -40,16 +40,16 @@ var app = angular.module('myApp', []);
 
 app.controller('newsCtrl', function($scope, $http) {
 	
-    $http.get("/showall/5")
-    .then(function (response) {$scope.results = response.data; //response.data[0].content;
-    $scope.resultNumber = 5;// response.data[0].numberOfElements;
+    $http.get("/showall/10")
+    .then(function (response) {$scope.results = response.data; 
+    $scope.resultNumber = 10;
     });
     
 	$scope.loadMore = function() {
 		console.log("$scope.resultNumber " + $scope.resultNumber);
-        $http.get("/showall/" + ($scope.resultNumber+5))
+        $http.get("/showall/" + ($scope.resultNumber+10))
         .then(function (response) {$scope.results = response.data;
-                                   $scope.resultNumber = $scope.resultNumber+5; //response.data[0].numberOfElements;
+                                   $scope.resultNumber = $scope.resultNumber+10; 
         });
 	}
 });

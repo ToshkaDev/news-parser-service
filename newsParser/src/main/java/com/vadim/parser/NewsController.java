@@ -26,7 +26,7 @@ public class NewsController{
 		return newsDao.findAllByOrderBySavedDateDesc(new PageRequest(0, resultNumber));
 	}
 	
-	@Scheduled(cron="*/20 * * * * *")                                           //Do not forget to change !!!!
+	@Scheduled(cron="0 0 10 * * *")
 	public void save() throws Exception  {
 		
 		Pattern pattern = Pattern.compile("Java", Pattern.CASE_INSENSITIVE);
