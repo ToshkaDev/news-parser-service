@@ -26,8 +26,8 @@
 <div class="container-fluid">
     <div ng-app="myApp" ng-controller="newsCtrl"> 
          <div class="list-group results">
-              <div ng-repeat="x in results">
-                 <a ng-href="{{x.link}}" target="_blank" class="list-group-item"><h4>{{x.title}}</h4></a>
+              <div ng-repeat="news in results">
+                 <a ng-href="{{news.link}}" target="_blank" class="list-group-item"><h4>{{news.title}}</h4></a>
              </div>
          </div>
          &nbsp;<button type="button" class="btn btn-lg center-block btn-default" ng-click="loadMore()">Загрузить еще</button>
