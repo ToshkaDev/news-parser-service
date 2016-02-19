@@ -30,7 +30,7 @@ import static org.junit.Assert.assertEquals;
 @SpringApplicationConfiguration(classes = NewsParserApplication.class)
 @WebAppConfiguration
 @IntegrationTest("server.port:0")
-public class EmailTest {
+public class EmailTestInteg {
  
 	@Autowired
 	private JavaMailSenderImpl javaMailSender;
