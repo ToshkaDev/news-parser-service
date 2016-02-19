@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<link href="css/main.css" rel="stylesheet" type="text/css" />
+<title>Отличные новости</title>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/" style="font-size:120%; color:white">Отличные новости</a>
+    </div>
+  </div>
+</nav>
+
+<div class="jumbotron">
+    <div class="container">
+    <h2>Последние новости c портала <span style="color:#8e2525">Novosti IT</span> </h2>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div ng-app="myApp" ng-controller="newsCtrl"> 
+         <div class="list-group results">
+              <div ng-repeat="x in results">
+                 <a ng-href="{{x.link}}" target="_blank" class="list-group-item"><h4>{{x.title}}</h4></a>
+             </div>
+         </div>
+         &nbsp;<button type="button" class="btn btn-lg center-block btn-default" ng-click="loadMore()">Загрузить более ранние</button>
+    </div>
+</div>
+
+
+<script>
+var app = angular.module('myApp', []);
+
+app.controller('newsCtrl', function($scope, $http) {
+	
+    $http.get("/showall/5")
+    .then(function (response) {$scope.results = response.data; //response.data[0].content;
+    $scope.resultNumber = 5;// response.data[0].numberOfElements;
+    });
+    
+	$scope.loadMore = function() {
+		console.log("$scope.resultNumber " + $scope.resultNumber);
+        $http.get("/showall/" + ($scope.resultNumber+5))
+        .then(function (response) {$scope.results = response.data;
+                                   $scope.resultNumber = $scope.resultNumber+5; //response.data[0].numberOfElements;
+        });
+	}
+});
+
+</script>
+
+
+</body>
+</html>
