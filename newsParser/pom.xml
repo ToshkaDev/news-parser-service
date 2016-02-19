@@ -110,7 +110,7 @@
 				<configuration>
 					<skipTests>${unit-tests.skip}</skipTests>
 					<excludes>
-						<exclude>**/*IT.java</exclude>
+						<exclude>**/*TestInteg.java</exclude>
 					</excludes>
 				</configuration>
 			</plugin>
@@ -125,7 +125,7 @@
 						<configuration>
 							<skipTests>${integration-tests.skip}</skipTests>
 							<includes>
-								<include>**/*IT.class</include>
+								<include>**/*TestInteg.class</include>
 							</includes>
 						</configuration>
 					</execution>

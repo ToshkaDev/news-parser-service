@@ -21,7 +21,7 @@ import static org.hamcrest.Matchers.*;
 @SpringApplicationConfiguration(classes = NewsParserApplication.class)
 @WebAppConfiguration
 @IntegrationTest("server.port:0")
-public class NewsParserApplicationIntegTest {
+public class NewsParserApplicationTestInteg {
 	private static final String TITLE_FIELD = "title";
 	private static final String LINK_FIELD = "link";
 	private static final String DATE_FIELD = "savedDate";
