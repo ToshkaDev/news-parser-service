@@ -46,7 +46,7 @@ public class NewsParserApplicationTest {
 	
 	
 	@Test
-	public void whenFindingNewsItShouldReturnAllNews() {
+	public void whenFindingNewsItShouldReturnSpecNumbOfNews() {
 	  // Given that the repository returns SECOND_NEWS and FIRST_NEWS
 	  given(newsDao.findAllByOrderBySavedDateDesc(new PageRequest(0, 2))).willReturn(Arrays.asList(SECOND_NEWS, FIRST_NEWS));
 	  // When looking for items
